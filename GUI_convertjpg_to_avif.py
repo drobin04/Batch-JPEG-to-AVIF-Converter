@@ -45,7 +45,8 @@ def convertjpegsfromdirectory(directoryvalue):
         avif_file = file + '.AVIF'
         if os.path.exists(avif_file):
             #now remove original file since we're done
-            os.remove(file)
+            if skip_deletion.get() == 0:  # Check the state of the checkbox
+                os.remove(file)  # Delete the old file
             continue  # skip if .AVIF version already exists
         try:
             JPGimg = Image.open(file)
@@ -56,14 +57,14 @@ def convertjpegsfromdirectory(directoryvalue):
             JPGimg.save(avif_file, 'AVIF')
             if os.path.exists(avif_file):
                 #now remove original file since we're done
-                os.remove(file)
+                if skip_deletion.get() == 0:  # Check the state of the checkbox
+                    os.remove(file)  # Delete the old file
                 #append_text('AVIF file already exists for file ' + avif_file)
         except Exception as e:
             append_text(f"Error converting {file} to .AVIF, filename: {avif_file} Error: {e}")
         
     append_text("Operation completed...")
     print("Operation completed...")
-
 
 
 window = tk.Tk()
@@ -80,7 +81,14 @@ select_button.pack()
 
 convert_button = tk.Button(window, text="Convert", command=convert)
 convert_button.pack()
+
+# Add the checkbox widget
+skip_deletion = tk.IntVar()
+skip_deletion_checkbox = tk.Checkbutton(window, text='Skip Deletion Of Old JPG Files', variable=skip_deletion)
+skip_deletion_checkbox.pack()
+
 output_text = scrolledtext.ScrolledText(window)
 output_text.pack()
 
 window.mainloop()
+
