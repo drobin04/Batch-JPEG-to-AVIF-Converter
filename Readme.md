@@ -1,4 +1,4 @@
-# Batch JPEG To Avif Context Menu Script
+# Batch JPEG To Avif Converter
 
 This project allows you to pick a directory and recursively scan for JPEG files that will be automatically converted to the newer, highly compressed [AVIF format](https://en.wikipedia.org/wiki/AVIF), shrinking 50-80% of the file size, in a large batch operation. 
 
