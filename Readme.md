@@ -1,6 +1,6 @@
 # Batch JPEG To Avif Converter
 
-This project allows you to pick a directory and recursively scan for JPEG files that will be automatically converted to the newer, highly compressed [AVIF format](https://en.wikipedia.org/wiki/AVIF), often shrinking 50-80% of the file size, in a large batch operation. 
+This project allows you to pick a directory and recursively scan for JPEG files that will be automatically converted to the newer, highly compressed [AVIF format](https://en.wikipedia.org/wiki/AVIF), often shrinking 50-80% of the file size, in a large batch operation, and then remove the original JPEG files afterwards.
 
 The project provides a GUI interface that allows you to specify the folder as well as some options, such as whether or not the original files should be deleted, as well as a 'test' to only scan the directory and show the files that would have been found. 
 
